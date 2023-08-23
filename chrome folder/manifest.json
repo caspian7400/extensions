@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Chrome Folder",
+    "version": "1.0.1",
+    "description": " Chrome Folder: Chrome Folder is a powerful Chrome extension that enables you save states of different chrome windows similar to a directory",
+    "permissions": [
+        "tabs",
+        "storage",
+        "contextMenus",
+        "commands"
+    ],
+    "background": {
+        "service_worker": "service_worker.js"
+    },
+    "commands": {
+        "saveState": {
+            "suggested_key": {
+                "default": "Alt + S",
+                "mac": "Alt + S"
+            },
+            "description": "save currently open tabs"
+        },
+        "openFolder": {
+            "suggested_key": {
+                "default": "Alt + O",
+                "mac": "Alt + O"
+            },
+            "description": "open folder menu"
+        }
+    },
+    "action": {
+        "default_icon": {},
+        "default_title": "Chrome Folder",
+        "default_popup": "popup.html"
+    }
+}
