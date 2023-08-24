@@ -22,12 +22,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 
 chrome.commands.onCommand.addListener((command) => {
-    if (command === "saveState") {
+    if (command === "saveState" || command === "openFolder") {
         chrome.windows.create({ url: "popup.html", type: "popup", width: 400, height: 600 });
-    }
-    if (command === "openFolder") {
-        openFolder();
-
     }
 });
 

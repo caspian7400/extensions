@@ -175,19 +175,15 @@ function getAllFolders() {
         const fun2 = await fillFolderMenu();
     });
 
-    save.addEventListener("click", () => {
+    save.addEventListener("click", async () => {
+        const obj = await getActiveTabs();
+        tabUrls = obj.tabUrls;
+        favIconUrls = obj.favIconUrls;
         const folderName = input.value;
         var testPrefs = JSON.stringify({ "urls": tabUrls, "favIconUrls": favIconUrls });
         var jsonfile = {};
         jsonfile[folderName] = testPrefs;
         chrome.storage.sync.set(jsonfile, () => console.log("tabs saved"));
-        /*
-        
-        
-        TODO when saved close menu , and show success toast
-
-
-        */
     });
 
     open.addEventListener("click", () => {
