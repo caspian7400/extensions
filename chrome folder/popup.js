@@ -93,9 +93,6 @@ function getAllFolders() {
     const fillSaveMenu = async () => {
         if (document.getElementById("saveElementWrapper")) {
             document.getElementById("saveElementWrapper").remove();
-            const obj = await getActiveTabs();
-            tabUrls = obj.tabUrls;
-            favIconUrls = obj.favIconUrls;
         }
         const wrapper = document.createElement("div");
         wrapper.id = "saveElementWrapper";
@@ -105,6 +102,10 @@ function getAllFolders() {
             const btn = createButton("btn btn-outline-dark");
             const trash = createIcon('bi-trash');
             trash.addEventListener("click", () => {
+                const url = trash.parentElement.parentElement.innerText;
+                const idx = tabUrls.indexOf(url);
+                tabUrls.splice(idx, 1);
+                favIconUrls.splice(idx, 1);
                 trash.parentElement.parentElement.remove();
             })
             img.src = favIconUrls[i];
@@ -176,9 +177,6 @@ function getAllFolders() {
     });
 
     save.addEventListener("click", async () => {
-        const obj = await getActiveTabs();
-        tabUrls = obj.tabUrls;
-        favIconUrls = obj.favIconUrls;
         const folderName = input.value;
         var testPrefs = JSON.stringify({ "urls": tabUrls, "favIconUrls": favIconUrls });
         var jsonfile = {};

@@ -13,11 +13,8 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-    if (info.menuItemId === "contextMenu1") {
+    if (info.menuItemId === "contextMenu1" || info.menuItemId === "contextMenu2") {
         chrome.windows.create({ url: "popup.html", type: "popup", width: 400, height: 600 });
-    }
-    if (info.menuItemId === "contextMenu2") {
-        openFolder();
     }
 });
 
@@ -26,6 +23,3 @@ chrome.commands.onCommand.addListener((command) => {
         chrome.windows.create({ url: "popup.html", type: "popup", width: 400, height: 600 });
     }
 });
-
-
-
