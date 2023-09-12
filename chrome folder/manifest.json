@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Chrome Folder",
     "version": "1.0.1",
-    "description": " Chrome Folder: Chrome Folder is a powerful Chrome extension that enables you save states of different chrome windows similar to a directory",
+    "description": " Powerful Chrome extension that enables you save states of different chrome windows similar to a directory",
     "permissions": [
         "tabs",
         "storage",
